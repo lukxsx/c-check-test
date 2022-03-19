@@ -1,6 +1,9 @@
 #include "count.h"
 
 int count(int a, int b) {
+	if (a > 10) {
+		return a + 1 + b; // just to test if this shows up in codecov
+	}
 	return a + b;
 }
 
