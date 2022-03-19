@@ -1,0 +1,17 @@
+name: Codecov
+on: [push, pull_request]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch
+        uses: actions/checkout@master
+      - name: Test
+        run: |
+          gcc -ftest-coverage -fprofile-arcs -O0 -lcheck -o test test.c count.c
+          ./test
+          gcov -abcfu gcov -abcfu test-count
+      - name: Upload
+        uses: codecov/codecov-action@v2
+        with:
+          files: ./count.c.gcov
