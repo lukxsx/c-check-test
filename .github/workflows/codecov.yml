@@ -12,7 +12,7 @@ jobs:
         run: |
           gcc -ftest-coverage -fprofile-arcs -O0 -o test test.c count.c -lcheck -lsubunit -pthread -pthread -lrt -lm -lsubunit
           ./test
-          gcov -abcfu gcov -abcfu test-count
+          gcov -abcfu count.c
       - name: Upload
         uses: codecov/codecov-action@v2
         with:
