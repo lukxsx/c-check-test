@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@master
       - name: Test
         run: |
-          gcc -ftest-coverage -fprofile-arcs -O0 -lcheck -o test test.c count.c
+          gcc -ftest-coverage -fprofile-arcs -O0 -lcheck -lsubunit -pthread -pthread -lrt -lm -lsubunit -o test test.c count.c
           ./test
           gcov -abcfu gcov -abcfu test-count
       - name: Upload
