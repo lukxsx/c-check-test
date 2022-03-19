@@ -4,7 +4,7 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - name: Install xmllint
+      - name: Install check
         run: sudo apt-get install -y check
       - name: Fetch
         uses: actions/checkout@master
